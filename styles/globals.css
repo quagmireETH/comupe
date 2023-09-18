@@ -1,27 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: rgb(0, 0, 25);
+  overflow-x: hidden;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+p {
+  color: white;
+  font-family: "Roboto Slab";
+}
+
+.underline {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.underline::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: #5a8d3e;
+  transition: all 0.2s ease-in-out;
+}
+
+.underline:hover::before {
+  width: 100%;
+}
+
+/* The container for the scrollbar */
+::-webkit-scrollbar {
+  width: 0.75em;
+  background-color: transparent;
+}
+
+/* The thumb, or handle, of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border: 2px solid #5a8d3e; /* adjust border thickness and color as needed */
+  border-radius: 5px;
+  box-sizing: border-box; /* to make sure the border doesn't increase the size of the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5a8d3e;
+}
+
+/* The track, or area, surrounding the thumb */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.star {
+  position: absolute;
+  background-color: #fff;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  animation: shine 1.5s infinite alternate;
+  z-index: -10;
+}
+
+@keyframes shine {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
